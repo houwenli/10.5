@@ -1,0 +1,306 @@
+/*.table {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+}
+.table img {
+	width: 100%;
+    height: 100%;
+} */
+/* 等待中的用户 */
+.waited-gamer {
+	position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: #369;
+    padding: .2rem;
+    text-align: center;
+}
+.waited-gamer p {
+	font-size: .3rem;
+    line-height: .4rem;
+}
+.waited-gamer li {
+    line-height: .44rem;
+    font-size: .28rem;
+}
+/* 等待中的用户end */
+/* 选择用户名准备开始游戏 */
+.select-username {
+	position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+	color: #fff;
+	text-align: center;
+}
+.select-username p {
+	font-size: .4rem;
+    line-height: 1rem;
+}
+.select-username li {
+	float: left;
+    width: 33%;
+    line-height: .74rem;
+}
+.select-username li span {
+    background-color: #369;
+    border-radius: .1rem;
+    padding: .1rem .2rem;
+}
+/* 选择用户名准备开始游戏end */
+/* 参与游戏 */
+.part-game {
+	position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.part-act span {
+    color: #fff;
+    background: #f90;
+    padding: .1rem .2rem .1rem;
+    border-radius: .2rem;
+    font-size: .36rem;
+}
+.giveup {
+	display: none;
+}
+/* 参与游戏end */
+/* 开始游戏 */
+.table {
+    border: 1px solid #ccc;
+    position: absolute;
+    border-radius: 50%;
+    top: 10%;
+    left: 50%;
+}
+.table .player {
+	width: .6rem;
+    height: .6rem;
+    color: #fff;
+    position: absolute;
+    margin-left: -.3rem;
+    margin-top: -.7rem;
+}
+.table .player>img {
+	width: 100%;
+	height: 120%;
+}
+.table .player>p{
+	font-size: .2rem;
+    transform: scale(.5);
+    width: 200%;
+    transform-origin: left;
+}
+.table .player>p .chip{
+	position: absolute;
+    top: 0;
+    right: 0rem;
+}
+.table .player .board-pannel {
+	margin-left: .5rem;
+    width: 200%;
+}
+.table .player .board-pannel li {
+	float: left;
+	margin-left: -.5rem;
+}
+.table .player .board-pannel img {
+	width: .6rem;
+}
+.table .current-player {
+	margin-top: -1.3rem;
+}
+.table .current-player .board-pannel li,.table .banker .board-pannel li {
+	margin-left: -.7rem;
+}
+.table .current-player .board-pannel img,.table .banker .board-pannel img {
+	width: .9rem;
+}
+/* 抢庄 */
+.rob-banker-crl {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 60%;
+    background: #ccc;
+    line-height: 1rem;
+    left: 14.7%;
+}
+.rob-banker-crl .rob-banker-sub,.rob-banker-crl .rob-banker-add{
+	background-color: #ff6;
+    width: .5rem;
+    display: inline-block;
+    height: .5rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #036;
+    font-size: .4rem;
+    line-height: .5rem;
+    margin: 0 .2rem;
+}
+.rob-banker {
+	color: #fff;
+    background: #f90;
+    padding: .1rem .2rem .1rem;
+    border-radius: .2rem;
+    font-size: .36rem;
+    margin-left: .5rem;
+}
+/* 抢庄end */
+/* 盲注 */
+.blind-bet-crl {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 60%;
+    background: #ccc;
+    line-height: 1rem;
+    left: 14.7%;
+}
+.blind-bet-crl .blind-bet-sub,.blind-bet-crl .blind-bet-add{
+	background-color: #ff6;
+    width: .5rem;
+    display: inline-block;
+    height: .5rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #036;
+    font-size: .4rem;
+    line-height: .5rem;
+    margin: 0 .2rem;
+}
+.blind-bet {
+	color: #fff;
+    background: #f90;
+    padding: .1rem .2rem .1rem;
+    border-radius: .2rem;
+    font-size: .36rem;
+    margin-left: .5rem;
+}
+/* 盲注end */
+/* 下注 */
+.bet-crl {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 60%;
+    background: #ccc;
+    line-height: 1rem;
+    left: 14.7%;
+}
+.bet-crl .bet-sub,.bet-crl .bet-add{
+	background-color: #ff6;
+    width: .5rem;
+    display: inline-block;
+    height: .5rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #036;
+    font-size: .4rem;
+    line-height: .5rem;
+    margin: 0 .2rem;
+}
+.bet ,.getcard{
+	color: #fff;
+    background: #f90;
+    padding: .1rem .2rem .1rem;
+    border-radius: .2rem;
+    font-size: .36rem;
+    margin-left: .5rem;
+}
+/* 下注end */
+/* 开始游戏end*/
+/* 聊天室 */
+.chat-room {
+	width: 2.5rem;
+    background-color: #cf6;
+    color: #063;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.chat-room > ul >li {
+    float: left;
+    width: 50%;
+    border-radius: .1rem;
+    background-color: #f90;
+    text-align: center;
+    color: #fff;
+    font-size: .3rem;
+    line-height: .5rem;
+}
+.chat-room-detail>div{
+	height: 3rem;
+    overflow: auto;
+    padding-bottom: .5rem;
+}
+.chat-room-detail>div>p {
+    word-break: break-all;
+}
+.msgtext {
+    width: 79%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: .4rem;
+}
+.sendmsg {
+    width: 40%;
+    position: absolute;
+    bottom: -.15rem;
+    right: 0;
+    border-radius: .1rem;
+    background-color: #f90;
+    text-align: center;
+    color: #fff;
+    font-size: .35rem;
+    line-height: .8rem;
+    transform: scale(.5);
+    transform-origin: right;
+}
+/* 聊天室end */
+/* 游戏结束清算 */
+.gameover {
+	position: absolute;
+    width: 50%;
+    top: 20%;
+    left: 25%;
+    color: #fff;
+    background-color: #363;
+    padding: .2rem;
+}
+.gameover span {
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+
+}
+/* 游戏结束清算end */
+/* 倒计时效果 */
+.satrt-time,.blind-time,.bet-time {
+	color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    width: 60%;
+    line-height: 1rem;
+    left: 14.7%;
+}
+.time-num {
+	background-color: #f90;
+	display: inline-block;
+	margin: 0 .1rem;
+    width: .8rem;
+    height: .8rem;
+    line-height: .8rem;
+    border-radius: 50%;
+}
+/* 倒计时效果end */

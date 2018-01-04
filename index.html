@@ -6,24 +6,101 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-touch-fullscreen" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	  	<script type="text/javascript" src="./js/game.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/base.css">
+		<link rel="stylesheet" type="text/css" href="./css/game_index.css">
+	  	<script type="text/javascript" src="./js/jquery-1.10.2.js"></script>
+	  	<script type="text/javascript" src="./js/resize_root.min.js"></script>
+		<script type="text/javascript" src="./js/game_index.js"></script>
 		<meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"><meta name="viewport" content="target-densitydpi=device-dpi, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 	</head>
-	<body style="margin: 0px; padding: 0px; background-color: rgb(255, 255, 255); overflow: hidden; background-position: initial initial; background-repeat: initial initial;">
-
-		<div id="main_container">
-			<div id="screen_background_container" align="center" style="width: 100%; height: 581px; position: absolute; left: 0px; top: 0px; display: block; z-index: 2; background: rgb(24, 51, 94);">
-				<div id="screen_background_wrapper" style="width: 400px; height: 266px; overflow: hidden; position: relative;">
-					<canvas id="screen_background" width="400" height="266"></canvas>
-				</div>
+	<body style="margin: 0px; padding: 0px; background-color: rgb(24, 51, 94); overflow: hidden; background-position: initial initial; background-repeat: initial initial;position: relative;">
+		
+		<!-- 此时已经可能有用户处于等待状态了 -->
+		<div class="waited-gamer" style="">
+			<p>等待中的用户</p>
+			<ul>
+				
+			</ul>
+		</div>
+		<!-- 进入游戏 -->
+		<div class="enter-game" style="">
+			<div class="select-username">
+				<p>请选择一个用户名进入游戏</p>
+				<ul>
+					<li data-uid="1" data-username="花心大少"><span>花心大少</span></li>
+					<li data-uid="2" data-username="三千曲歌"><span>三千曲歌</span></li>
+					<li data-uid="3" data-username="诸葛孔明"><span>诸葛孔明</span></li>
+					<li data-uid="4" data-username="东方不败"><span>东方不败</span></li>
+					<li data-uid="5" data-username="独孤求败"><span>独孤求败</span></li>
+					<li data-uid="6" data-username="天蚕土豆"><span>天蚕土豆</span></li>
+					<li data-uid="7" data-username="哈哈哈哈"><span>哈哈哈哈</span></li>
+					<li data-uid="8" data-username="唐家三少"><span>唐家三少</span></li>
+					<li data-uid="9" data-username="骷髅精灵"><span>骷髅精灵</span></li>
+					<li data-uid="10" data-username="番茄土豆"><span>番茄土豆</span></li>
+				</ul>
 			</div>
-			<div id="screen_container" align="center" style="width: 100%; height: 581px; position: absolute; left: 0px; top: 0px; display: block; z-index: 3;">
-				<div id="screen_wrapper" style="width: 400px; height: 266px; overflow: hidden; position: relative;">
-					<canvas id="screen" style="position: absolute; left: 0px; top: 0px; z-index: 1000000;" width="400" height="266">You browser does not support this application :(</canvas>
+		</div>
+		<!-- 参与游戏 -->
+		<div class="part-game" style="display: none;">
+			<p class="part-act">
+				<span class="join">参与游戏</span>
+				<span class="giveup">放弃游戏</span>
+			</p>
+		</div>
+		<!-- 开始游戏 -->
+		<div class="start-game" style="display: none;">
+			<div class="table">
+				
+			</div>
+			<!-- 抢庄 -->
+			<p class="rob-banker-crl" style="display: none;">
+				<span class="rob-banker-sub">-</span><span class="rob-banker-num">0</span><span class="rob-banker-add">+</span><span class="rob-banker">抢庄</span>
+			</p>
+			<!-- 盲注 -->
+			<p class="blind-bet-crl" style="display: none;">
+				<span class="blind-bet-sub">-</span><span class="blind-bet-num">0</span><span class="blind-bet-add">+</span><span class="blind-bet">盲注</span>
+			</p>
+			<!-- 下注 -->
+			<p class="bet-crl" style="display: none;">
+				<span class="bet-sub">-</span><span class="bet-num">0</span><span class="bet-add">+</span><span class="bet">下注</span><span class="getcard">要牌</span>
+			</p>
+		</div>
+		<!-- 聊天室 -->
+		<div class="chat-room">
+			<ul class="chat-ctl clearfix">
+				<li data-ctl="member">成员</li>
+				<li data-ctl="chat">聊天</li>
+			</ul>
+			<div class="chat-room-detail">
+				<div class="member-pannel" style="display: none;">
+
+				</div>
+				<div class="chat-pannel" >
+					<input class="msgtext" type="text" name="msgtext"/><span class="sendmsg">发送</span>
 				</div>
 			</div>
 		</div>
-
-
+		<!-- 聊天室end -->
+		<!-- 游戏结束清算 -->
+		<div class="gameover" style="display: none;">
+			<p><span class="name">姓名</span><span class="point">点数</span><span class="record">得分</span></p>
+			<p><span class="name">东方不败</span><span class="point">10</span><span class="record">50</span></p>
+			<p><span class="name">花心大少</span><span class="point">9</span><span class="record">30</span></p>
+		</div>
+		<!-- 游戏结束清算end -->
+		<!-- 倒计时效果 -->
+		<!-- 开始游戏倒计时 -->
+		<p class="satrt-time" style="display: none;">
+			开始倒计时<span class="time-num">3</span>
+		</p>
+		<!-- 盲注倒计时 -->
+		<p class="blind-time" style="display: none;">
+			开始倒计时<span class="time-num">3</span>
+		</p>
+		<!-- 下注倒计时 -->
+		<p class="bet-time" style="display: none;">
+			开始倒计时<span class="time-num">3</span>
+		</p>
+		<!-- 倒计时效果end -->
 	</body>
 </html>
