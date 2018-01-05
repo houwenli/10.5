@@ -16,6 +16,7 @@ var module = (function($,module){
 		{username:"番茄土豆", current:false,banker:false},
 		{username:"再来一次", current:false,banker:false}
 	];
+	var playerCard=[];
 	var timerId;
 	var cardArr = ['1-1','1-2','1-3','1-4','1-5','1-6','1-7','1-8','1-9','1-10','1-11','1-12','1-13',
 				   '2-1','2-2','2-3','2-4','2-5','2-6','2-7','2-8','2-9','2-10','2-11','2-12','2-13',
@@ -181,10 +182,11 @@ var module = (function($,module){
 	}
 
 	// 初始化当前玩家
-	module.initPlayer = function(playerArr){
+	module.initPlayer = function(playerArr,cardArr){
 		var playerLen = playerArr.length;
 		var currentTarget;
 		var playerStr = '';
+		//确定当前用户
 		for(var i = 0;i < playerLen;i++){
 			if(playerArr[i].current){
 				currentTarget = i;
@@ -192,6 +194,8 @@ var module = (function($,module){
 			}
 		}
 		for(var j=0;j < playerLen;j++){
+			// 底牌
+			playerCard[j] = cardArr.splice(0,2);
 			var deg;
 			var top;
 			var lrft;
@@ -212,9 +216,9 @@ var module = (function($,module){
 			}
 			if(Math.sin(deg*Math.PI/180)<=0){
 				//在三四象限把牌放在头像上面
-				playerStr += '<div class="player '+(j==currentTarget?' current-player ':'')+(playerArr[j].banker?'banker':'')+'" style="top:'+top+'px;left:'+left+'px;"><ul class="board-pannel clearfix"><li><img src="./images/1.5/back.png"/></li><li><img src="./images/1.5/1-1.png"/></li></ul><img src="'+(playerArr[j].banker?'./images/banker.jpg':'./images/player.jpg')+'"/>'+(j==currentTarget?'':'<p>'+playerArr[j].username+'<span class="chip"></span></p>')+'</div>';
+				playerStr += '<div class="player '+(j==currentTarget?' current-player ':'')+(playerArr[j].banker?'banker':'')+'" style="top:'+top+'px;left:'+left+'px;"><ul class="board-pannel clearfix"><li><img src="./images/1.5/back.png"/></li><li><img src="./images/1.5/'+playerCard[j][1]+'.png"/></li></ul><img src="'+(playerArr[j].banker?'./images/banker.jpg':'./images/player.jpg')+'"/>'+(j==currentTarget?'':'<p>'+playerArr[j].username+'<span class="chip"></span></p>')+'</div>';
 			}else{
-				playerStr += '<div class="player '+(playerArr[j].banker?'banker':'')+'" style="top:'+top+'px;left:'+left+'px"><img src="'+(playerArr[j].banker?'./images/banker.jpg':'./images/player.jpg')+'"/><p>'+playerArr[j].username+'<span class="chip"></span></p><ul class="board-pannel clearfix"><li><img src="./images/1.5/back.png"/></li><li><img src="./images/1.5/1-1.png"/></li></ul></div>';
+				playerStr += '<div class="player '+(playerArr[j].banker?'banker':'')+'" style="top:'+top+'px;left:'+left+'px"><img src="'+(playerArr[j].banker?'./images/banker.jpg':'./images/player.jpg')+'"/><p>'+playerArr[j].username+'<span class="chip"></span></p><ul class="board-pannel clearfix"><li><img src="./images/1.5/back.png"/></li><li><img src="./images/1.5/'+playerCard[j][1]+'.png"/></li></ul></div>';
 			}
 		}
 		$('.table').append(playerStr);
@@ -265,8 +269,11 @@ var module = (function($,module){
 			module.countdown("satrt-time",function(){
 				//alt 开始游戏
 				onGamestart(playerArr);
+				//模拟打乱牌的顺序和用户顺序
+				playerArr.sort(module.utils.randomsort);
+				cardArr.sort(module.utils.randomsort);
 				//发两张牌，重新组装playerArr
-				onDealer(playerArr);
+				onDealer(playerArr,cardArr);
 				robBanker();
 			})
 			//alt 参加游戏
@@ -401,6 +408,9 @@ var module = (function($,module){
 			for(var i = 0; i < playerArr.length; i++){
 
 			}
+		},
+		randomsort:function(a, b) {
+		    return Math.random()>.5 ? -1 : 1;
 		}
 	}
 
@@ -474,9 +484,9 @@ function onBankerSure(params){
 	$(".player>img").eq(params[0].location).attr('src','./images/banker.jpg')
 }
 
-function onDealer(params) {
+function onDealer(params,cardArr) {
     // module.log("onDealer=" + JSON.stringify(params));    
-    module.initPlayer(params);
+    module.initPlayer(params,cardArr);
 }
 
 // 盲注
